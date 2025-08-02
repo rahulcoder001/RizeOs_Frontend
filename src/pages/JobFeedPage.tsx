@@ -47,7 +47,7 @@ export default function JobFeedPage() {
       if (locationFilter) params.append('location', locationFilter);
       if (tagsFilter) params.append('tags', tagsFilter);
 
-      const response = await axios.get(`http://localhost:5000/api/jobs/search?${params.toString()}`);
+      const response = await axios.get(`https://rizeos-backend-1-zfin.onrender.com/api/jobs/search?${params.toString()}`);
       setJobs(response.data);
     } catch (err) {
       setError('Failed to load jobs: ' + err);
@@ -64,7 +64,7 @@ export default function JobFeedPage() {
     }
     
     try {
-      const response = await axios.get(`http://localhost:5000/api/jobs/skills?q=${encodeURIComponent(query)}`);
+      const response = await axios.get(`https://rizeos-backend-1-zfin.onrender.com/api/jobs/skills?q=${encodeURIComponent(query)}`);
       setSuggestedSkills(response.data.slice(0, 5));
     } catch (err) {
       console.error('Failed to fetch skill suggestions:', err);

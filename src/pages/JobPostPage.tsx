@@ -83,7 +83,7 @@ export default function JobPostPage() {
         throw new Error('Please complete payment first');
       }
       
-       await axios.post('http://localhost:5000/api/jobs', {
+       await axios.post('https://rizeos-backend-1-zfin.onrender.com/api/jobs', {
         ...formData,
         paymentTxHash
       }, {

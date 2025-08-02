@@ -22,7 +22,7 @@ export default function Dashboard() {
     if (user) {
       const fetchProfile = async () => {
         try {
-          const response = await axios.get(`http://localhost:5000/api/auth/me`, {
+          const response = await axios.get(`https://rizeos-backend-1-zfin.onrender.com/api/auth/me`, {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
           });
           const userData = response.data;
@@ -53,7 +53,7 @@ const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
       const formData = new FormData();
       formData.append('resume', file);
 
-      const response = await axios.post('http://localhost:5000/api/ai/extract-skills', formData, {
+      const response = await axios.post('https://rizeos-backend-1-zfin.onrender.com/api/ai/extract-skills', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -90,7 +90,7 @@ const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setError('');
 
     try {
-      await axios.put('http://localhost:5000/api/auth/profile', {
+      await axios.put('https://rizeos-backend-1-zfin.onrender.com/api/auth/profile', {
         userId: user?.id,
         name,
         bio,
